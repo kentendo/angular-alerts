@@ -1,0 +1,39 @@
+{
+  "name": "angular-alerts",
+  "version": "0.0.1",
+  "description": "A simple alert directive and service for angular.",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kentendo/angular-alerts.git"
+  },
+  "keywords": [
+    "angular",
+    "alert"
+  ],
+  "author": "kentendo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kentendo/angular-alerts/issues"
+  },
+  "homepage": "https://github.com/kentendo/angular-alerts",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-htmlmin": "latest",
+    "grunt-contrib-jasmine": "^0.8.2",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-jscs": "^1.6.0",
+    "grunt-karma": "^0.10.1",
+    "jasmine-core": "^2.2.0",
+    "jshint": "latest",
+    "karma": "^0.12.31",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
+}

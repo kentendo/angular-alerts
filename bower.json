@@ -1,0 +1,25 @@
+{
+  "name": "angular-alerts",
+  "main": "angular-alerts.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/kentendo/angular-alerts",
+  "authors": [
+    "kentendo <kenny@kennycosca.com>"
+  ],
+  "description": "Simple alert service and directive for angular.",
+  "keywords": [
+    "angular",
+    "alerts"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.3.15",
+    "angular-mocks": "~1.3.15"
+  }
+}
