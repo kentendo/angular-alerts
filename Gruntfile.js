@@ -3,8 +3,9 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     pkg : grunt.file.readJSON('package.json'),
+
     jshint : {
-      files : ['Gruntfile.js', 'kc-angular-alerts.js'],
+      files : ['Gruntfile.js', 'k-alert.js'],
       options : {
         globals : {
           jQuery : true
@@ -15,16 +16,16 @@ module.exports = function(grunt) {
       options : {
         mangle : false
       },
-      alerts : {
+      alert : {
         files : {
-          'dist/kc-angular-alerts.min.js' : ['kc-angular-alerts.js']
+          'dist/k-alert.min.js' : ['src/k-alert.js']
         }
       }
     },
     cssmin : {
-      alerts : {
+      alert : {
         files : {
-          'dist/kc-angular-alerts.min.css' : ['kc-angular-alerts.css']
+          'dist/k-alert.min.css' : ['src/k-alert.css']
         }
       }
     },
@@ -66,6 +67,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['jshint', 'jasmine', 'uglify', 'cssmin', 'watch']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'cssmin']);
 
 };
