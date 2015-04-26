@@ -29,7 +29,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    
     watch : {
       files : ['<%= jshint.files %>'],
       tasks : ['jshint']
@@ -37,9 +36,15 @@ module.exports = function(grunt) {
     karma : {
       unit : {
         options : {
-          configFile:'test/karma.conf.js'
+          configFile : 'test/karma.conf.js'
         }
-      }
+      },
+      //continuous integration mode: run tests once in PhantomJS browser.
+      continuous : {
+        configFile : 'test/karma.conf.js',
+        singleRun : true,
+        browsers : ['PhantomJS']
+      },
     }
 
   });
