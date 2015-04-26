@@ -10,19 +10,17 @@ angular.module('kAlertModule',[])
 	var z = 111;
 	return {
 		alert: function(type, message){
-			var html = '<alert type="'+type+'" message="'+message+'" style="z-index:'+z+'" />';
-			var template = angular.element(html);
-			var linkFn = $compile(template);
-			var element = linkFn($rootScope.$new());
-			$document.find('body').append(element);
+			var html = '<data-k-alert type="'+type+'" message="'+message+'" style="z-index:'+z+'" />';
+			var element = $compile(html)($rootScope);
+			$document.body.appendChild(element);
 			z++;
 		}
 	};
 })
-.directive("kAlertDirective", function($timeout){
+.directive("kAlert", function($timeout){
 	return {
 		restrict:'E',
-		replace:true,
+		replace:false,
 		templateUrl:'k-alert.html',
 		link: function(scope, element, attributes){
 			var timeout = $timeout(function(){
@@ -33,10 +31,10 @@ angular.module('kAlertModule',[])
 				$timeout.cancel(timeout);
 				element.remove();
 			});
-        },
-        scope:{
-        	type:"@type",
-        	message:"@message"
-        }
+    },
+    scope:{
+    	type:"@type",
+     	message:"@message"
+    }
 	};
 });
