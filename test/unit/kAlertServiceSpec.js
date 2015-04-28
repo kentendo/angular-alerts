@@ -2,12 +2,17 @@
 
 describe('unit testing the kAlertService', function() {
   
-  var alertService, mock, mockBody;
+  var alertService, mock, mockFind;
   
   beforeEach(function(){
     
-    mockBody = {appendChild: jasmine.createSpy()};
-    mock = {body: mockBody};
+    mockFind = { append:jasmine.createSpy() };
+    mock = {
+      find: function(){
+        return mockFind;
+      }
+    };
+    
     module(function($provide) {
       $provide.value('$document', mock);
     });
@@ -29,7 +34,7 @@ describe('unit testing the kAlertService', function() {
   it('should append an alert to document.body', function(){
     // create alert
     alertService.alert('error', 'test successfull');
-    expect(mock.body.appendChild).toHaveBeenCalled();
+    expect(mockFind.append).toHaveBeenCalled();
   });
   
 }); 

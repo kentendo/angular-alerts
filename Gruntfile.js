@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     pkg : grunt.file.readJSON('package.json'),
 
     jshint : {
-      files : ['Gruntfile.js', 'k-alert.js'],
+      files : ['Gruntfile.js', 'src/*.js'],
       options : {
         globals : {
           jQuery : true
@@ -35,11 +35,8 @@ module.exports = function(grunt) {
     },
     karma : {
       unit : {
-        options : {
-          configFile : 'test/karma.conf.js'
-        }
+        configFile : 'test/karma.conf.js'
       },
-      //continuous integration mode: run tests once in PhantomJS browser.
       continuous : {
         configFile : 'test/karma.conf.js',
         singleRun : true,
@@ -50,6 +47,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-protractor-runner');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');

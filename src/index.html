@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>kAlert Test</title>
+    <link rel="stylesheet" href="k-alert.css">
+  </head>
+  <body ng-app="testModule">
+    <h1>kAlert Test</h1>
+    <p>An alert should get added to this page and then remove itself.</p>
+    <div ng-controller="testController">
+      <form id="alert-form" ng-submit="createAlert()">
+        <p>
+          <input id="alert-message" ng-model="message" type="text" placeholder="Enter alert message." />
+        </p>
+        <p>
+          <select id="alert-type" ng-model="type">
+            <option>error</option>
+            <option>success</option>
+            <option>warning</option>
+            <option>info</option>
+          </select>
+        </p>
+        <p>
+          <button id="alert-submit" type="submit">create alert</button>
+        </p>
+      </form>
+    </div>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="k-alert.js"></script>
+    <script>
+      var testModule = angular.module('testModule', ['kAlertModule'])
+      .controller('testController', ['$scope', 'kAlertService', function($scope, kAlertService){
+        $scope.type = 'success';
+        $scope.message = '';
+        $scope.createAlert = function(e){
+          kAlertService.alert($scope.type, $scope.message);
+        }
+      }])
+    </script>
+    
+  </body>
+</html>
